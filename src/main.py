@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 from src.auth.base_config import auth_backend, fastapi_users
 from src.auth.schemas import UserRead, UserCreate
-from src.orders.router import router as router_orders
+from src.orders.router import request_router, response_router
 
 app = FastAPI(
     title="Order Status Management"
@@ -20,4 +20,5 @@ app.include_router(
     tags=["auth"],
 )
 
-app.include_router(router_orders)
+app.include_router(request_router)
+app.include_router(response_router)

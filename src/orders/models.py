@@ -18,6 +18,7 @@ request = Table(
     Column("request_user_id", Integer, ForeignKey(user.c.id)),
 )
 
+
 response = Table(
     "response",
     metadata,
