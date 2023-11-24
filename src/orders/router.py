@@ -31,7 +31,7 @@ async def get_all_requests(session: AsyncSession = Depends(get_async_session)):
 async def get_request_by_id(request_id: int, session: AsyncSession = Depends(get_async_session)):
     query = select(request).where(request.c.id == request_id)
     result = await session.execute(query)
-    return result.mappings().all()
+    return result.mappings().first()
 
 
 @request_router.post("/add/")
