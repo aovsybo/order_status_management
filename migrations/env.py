@@ -9,8 +9,10 @@ from sqlalchemy import pool
 from alembic import context
 
 from src.config import DB_NAME, DB_PASS, DB_PORT, DB_HOST, DB_USER
-from src.auth.models import metadata as auth_metadata
-from src.orders.models import metadata as orders_metadata
+from src.database import Base, metadata
+from src.auth.models import *
+from src.orders.models import *
+from src.chat.models import *
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -32,7 +34,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = [auth_metadata, orders_metadata]
+target_metadata = [metadata, Base.metadata]
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

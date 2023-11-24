@@ -47,7 +47,7 @@ async def add_request(
 
 
 @response_router.get("/income/")
-async def get_income_requests(
+async def get_income_responses(
         session: AsyncSession = Depends(get_async_session),
         user: User = Depends(current_user)
 ):
