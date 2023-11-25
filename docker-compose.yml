@@ -16,4 +16,4 @@ services:
       - 8000:8000
     depends_on:
       - db
-    command: bash -c "alembic upgrade head && gunicorn src.main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind=0.0.0.0:8000"
+    command: ["/order_status_management/app.sh"]

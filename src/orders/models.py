@@ -1,12 +1,10 @@
 from sqlalchemy import (
-    MetaData,
     Integer, String,
     Table, Column, ForeignKey
 )
 
 from src.auth.models import user
-
-metadata = MetaData()
+from src.database import metadata
 
 
 request = Table(
