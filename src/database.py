@@ -3,6 +3,7 @@ from typing import AsyncGenerator
 from sqlalchemy import MetaData
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.pool import NullPool
 
 from src.config import DB_NAME, DB_PASS, DB_PORT, DB_HOST, DB_USER
 
@@ -15,7 +16,7 @@ class Base(DeclarativeBase):
 
 metadata = MetaData()
 
-engine = create_async_engine(DATABASE_URL)
+engine = create_async_engine(DATABASE_URL, poolclass=NullPool)
 async_session_maker = async_sessionmaker(engine, expire_on_commit=False)
 
 
